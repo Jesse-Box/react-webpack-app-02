@@ -37,6 +37,8 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "@sentry/react": "^7.57.0",
+    "@sentry/webpack-plugin": "^2.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   }

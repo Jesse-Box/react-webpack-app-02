@@ -2,9 +2,11 @@ const path = require('path');
 
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { sentryWebpackPlugin } = require('@sentry/webpack-plugin');
 
 module.exports = {
   mode: 'development',
+  devtool: 'source-map',
   entry: {
     main: path.resolve(__dirname, './src/index.js'),
   },
@@ -58,5 +60,10 @@ module.exports = {
       filename: './index.html',
     }),
     new CleanWebpackPlugin(),
+    sentryWebpackPlugin({
+      authToken: process.env.SENTRY_AUTH_TOKEN,
+      org: 'jesse-box',
+      project: 'javascript-react',
+    }),
   ],
 };
